@@ -1,6 +1,7 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
-from django.contrib.auth import get_user_model
+
 
 class Post(models.Model):
     name = models.CharField(max_length=200)
@@ -9,7 +10,8 @@ class Post(models.Model):
         get_user_model(),
         on_delete=models.CASCADE,
     )
-    price = models.PositiveIntegerField()
+    category = models.CharField(max_length=200)
+    price = models.CharField(max_length=20)
     photo = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):

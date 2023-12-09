@@ -12,7 +12,7 @@ class HomePageView(ListView):
 class CreatePostView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'create_post.html'
-    fields = ['name', 'description', 'price', 'photo']
+    fields = ['name', 'description', 'price', 'category','photo']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
