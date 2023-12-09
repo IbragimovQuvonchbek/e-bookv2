@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>e-Market</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="../media/favicon.png" sizes="48x48">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@700&family=Nunito+Sans:opsz,wght@6..12,300&family=Rubik:wght@300;400&display=swap');
+
+        .post{
+            margin-top:65px;
+            gap:40px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom:50px;
+        }
+        .post-image_container{
+            margin-left: 20px;
+            width:580px;
+            float:left;
+            /* border: 1px solid black; */
+        }
+        .post-image_container img{
+            width:100%;
+            border-radius: 4px;
+            box-shadow: 0px 0px 30px rgb(0, 0, 0, 0.5),
+            0px 0px 60px rgb(0, 0, 0, 0.5);        
+        }
+        .post-text{
+            margin-right: 20px;
+            margin-top: 10px;
+            float:left;
+            margin-left:80px;
+            width:580px;
+            text-align:center;
+        }
+        .name-post{
+            margin:0;
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'Big Shoulders Text', sans-serif;
+
+        }
+        .post-price{
+            margin:0;
+            font-size: 40px;
+            font-weight: 100;
+            font-family: 'Big Shoulders Text', sans-serif;
+        }
+        .author-name{
+            margin-top:40px;
+            margin-bottom: 5px;
+            font-size: 50px;
+            font-weight: 100;
+            font-family: 'Big Shoulders Text', sans-serif;
+        }
+        @media screen and (max-width: 1300px) {
+            .post{
+                /* display:flex; */
+                align-items: center;
+            }
+            .post-text{
+                margin-top:20px;
+                margin-left:auto;
+                margin-right:auto;
+                float:none;
+            }
+            .post-image_container{
+                margin:auto;
+                float:none;
+                /* border: 1px solid black; */
+            }
+            .footer{
+                font-size:12px;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .post{
+                /* display:flex; */
+                align-items: center;
+            }
+            .post-text{
+                width:90%;
+                margin-top:20px;
+                margin-left:auto;
+                margin-right:auto;
+                float:none;
+            }
+            .post-image_container{
+                width:90%;
+                margin:auto;
+                float:none;
+                /* border: 1px solid black; */
+            }
+            .name-post{
+                font-size: 40px;
+                font-weight: 800;
+
+            }
+            .post-price{
+                font-size: 20px;
+            }
+            .author-name{
+                font-size: 50px;
+            }
+            .footer{
+                font-size:12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    {%extends 'base.html'%}
+    {%block content%}
+    <div class="post">
+        <div class="post-image_container">
+            <img src="{{ post.photo.url }}" alt="prodcut">
+        </div>
+        <div class="post-text">
+            <p class="name-post">{{post.name}}</p>
+            <p class="post-price"> {{post.price}}$</p>
+            <p class="author-name">Тел. +998(90)433-68-07</p>
+            <a style="color:black; font-size:20px;" href="tg://resolve?domain=confident_sw"><button type="submit" class="btn-donate">Телеграм</button></a>
+            <p>{{post.description}}</p>
+        </div>
+    </div>
+    <br>
+    {%endblock content%}
+</body>
+</html>

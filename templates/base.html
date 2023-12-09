@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>e-Market</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="../media/favicon.png" sizes="48x48">
+    <style>
+        .footer {
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 14px;
+            /* margin-top: 20px; */
+            /* color:white; */
+            position: fixed;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            height: 50px;
+            width: 100%;
+            z-index: 3;
+        }
+        link{
+            display: block;
+        }
+
+        .footer p {
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 14px;
+            color: rgb(161, 161, 161);
+            text-align: center;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&family=Rubik:wght@300;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+        body {
+            overflow: auto;
+            height: 60vw;
+            margin: 0px;
+            padding: 0px;
+            background: url(https://img.freepik.com/premium-vector/abstract-transparent-circles-with-shadow-white-grey-background_291930-617.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 14px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            height: 50px;
+            width: 100%;
+            z-index: 3;
+        }
+
+        .header-name {
+            float: left;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .sign {
+            float: right;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .create-new {
+            width: 120px;
+            float: right;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #button-1 {
+            margin-left: 5px;
+            width: 80px;
+            height: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+        }
+
+        #button-1:hover {
+            background-color: rgb(92, 92, 92, 0.7);
+        }
+
+        #button-2 {
+            width: 120px;
+            height: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+        }
+
+        #button-2:hover {
+            background-color: rgb(92, 92, 92, 0.7);
+        }
+
+        
+
+        
+
+        
+
+
+        
+
+    </style>
+</head>
+
+<body>
+    {% if user.is_authenticated%}
+    <div class="header">
+        <div class="header-name">
+            <a href="{%url 'home'%}" id="button-1">Home</a>
+        </div>
+<!--        <div class="sign">-->
+<!--            <a href="{%url 'logout'%}" id="button-1">Log out</a>-->
+<!--        </div>-->
+        {% if user.is_staff %}
+        <div class="create-new">
+            <a href="{%url 'create_post'%}" id="button-2">Create Product</a>
+        </div>
+        {%endif%}
+    </div>
+    {%else%}
+    <div class="header">
+        <div class="header-name">
+            <a href="{%url 'home'%}" id="button-1">Home</a>
+        </div>
+<!--        <div class="sign">-->
+<!--            <a href="{%url 'login'%}" id="button-1">Log in</a>-->
+<!--            <a href="{%url 'signup'%}" id="button-1">Sign up</a>-->
+<!--        </div>-->
+    </div>
+    {%endif%}
+    {%block content%}
+
+    {%endblock content%}
+    <br>
+    <div class="footer">
+        <p>Created by: <a href="tg://resolve?domain=IbragimovQuvonchbek">Ibragimov Quvonchbek</a> and <a
+                href="tg://resolve?domain=OtabekJurabekov">Otabek Jurabekov</a></p>
+    </div>
+
+</body>
+
+</html>
